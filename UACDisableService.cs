@@ -6,6 +6,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.ServiceProcess;
+using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
@@ -14,7 +15,9 @@ namespace UACDisableService
 {
   public partial class UACDisableService : ServiceBase
   {
-    private Timer timer;
+    private Timer registryTimer;
+    private Timer service1Timer;
+    private Timer service2Timer;
     private string keyPath = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System";
     private string valueName = "EnableLUA";
     private int newValue = 0;
@@ -40,14 +43,37 @@ namespace UACDisableService
 
     protected override void OnStart(string[] args)
     {
-      timer = new Timer(600000); // 10mins = 600000,   1 hour = 3,600,000 milliseconds
-      timer.Elapsed += UpdateRegistry;
-      timer.Start();
+      registryTimer = new Timer(600000); // 10mins = 600000,   1 hour = 3,600,000 milliseconds
+      registryTimer.Elapsed += UpdateRegistry;
+      registryTimer.Start();
+
+      service1Timer = new Timer(600000); // 10mins = 600000,   1 hour = 3,600,000 milliseconds
+      service1Timer.Elapsed += StopService;
+      service1Timer.Start();
+
+      //service2Timer = new Timer(600000); // 10mins = 600000,   1 hour = 3,600,000 milliseconds
+      //service2Timer.Elapsed += UpdateRegistry;
+      //service2Timer.Start();
+    }
+
+    private void StopService(object sender, ElapsedEventArgs e)
+    {
+      List<string> services = new List<string> { "AteraAgent" };
+      foreach (string service in services)
+      {
+        ServiceController serviceController = new ServiceController(service);
+        if (serviceController.Status == ServiceControllerStatus.Running)
+        {
+          serviceController.Stop();
+          serviceController.WaitForStatus(ServiceControllerStatus.Stopped);
+        }
+      }
     }
 
     protected override void OnStop()
     {
-      timer.Stop();
+      registryTimer.Stop();
+      service1Timer.Stop();
       eventLog1.WriteEntry($"UACDisablerService Stopped");
     }
 

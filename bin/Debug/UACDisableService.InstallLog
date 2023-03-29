@@ -72,3 +72,26 @@ Affected parameters are:
    logtoconsole = 
    logfile = C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debug\UACDisableService.InstallLog
    assemblypath = C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debug\UACDisableService.exe
+Uninstalling assembly 'C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debug\UACDisableService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debug\UACDisableService.InstallLog
+   assemblypath = C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debug\UACDisableService.exe
+Removing EventLog source UACDisablerService.
+Service UACDisablerService is being removed from the system...
+Service UACDisablerService was successfully removed from the system.
+Installing assembly 'C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debug\UACDisableService.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debug\UACDisableService.InstallLog
+   assemblypath = C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debug\UACDisableService.exe
+   logtoconsole = 
+Installing service UACDisablerService...
+Service UACDisablerService has been successfully installed.
+Creating EventLog source UACDisablerService in log Application...
+Committing assembly 'C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debug\UACDisableService.exe'.
+Affected parameters are:
+   i = 
+   logfile = C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debug\UACDisableService.InstallLog
+   assemblypath = C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debug\UACDisableService.exe
+   logtoconsole = 

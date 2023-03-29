@@ -81,3 +81,24 @@ The file is located at C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debu
 The Commit phase completed successfully.
 
 The transacted install has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debug\UACDisableService.exe assembly's progress.
+The file is located at C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debug\UACDisableService.InstallLog.
+
+The uninstall has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debug\UACDisableService.exe assembly's progress.
+The file is located at C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debug\UACDisableService.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debug\UACDisableService.exe assembly's progress.
+The file is located at C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debug\UACDisableService.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.

@@ -1,0 +1,9 @@
+https://learn.microsoft.com/en-us/dotnet/framework/windows-services/walkthrough-creating-a-windows-service-application-in-the-component-designer
+
+Quick Commands for Developer Command Prompt:
+
+installutil UACDisableService.exe
+--For uninstall
+installutil /u UACDisableService.exe
+--For install
+installutil /i UACDisableService.exe 
