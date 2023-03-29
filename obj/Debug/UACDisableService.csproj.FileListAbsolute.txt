@@ -1,0 +1,11 @@
+C:\DEV\Repos\UACDisableService\UACDisableService\obj\Debug\UACDisableService.csproj.AssemblyReference.cache
+C:\DEV\Repos\UACDisableService\UACDisableService\obj\Debug\UACDisableService.csproj.SuggestedBindingRedirects.cache
+C:\DEV\Repos\UACDisableService\UACDisableService\obj\Debug\UACDisableService.ProjectInstaller.resources
+C:\DEV\Repos\UACDisableService\UACDisableService\obj\Debug\UACDisableService.csproj.GenerateResource.cache
+C:\DEV\Repos\UACDisableService\UACDisableService\obj\Debug\UACDisableService.csproj.CoreCompileInputs.cache
+C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debug\UACDisableService.exe.config
+C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debug\UACDisableService.exe
+C:\DEV\Repos\UACDisableService\UACDisableService\bin\Debug\UACDisableService.pdb
+C:\DEV\Repos\UACDisableService\UACDisableService\obj\Debug\UACDisableService.exe
+C:\DEV\Repos\UACDisableService\UACDisableService\obj\Debug\UACDisableService.pdb
+C:\DEV\Repos\UACDisableService\UACDisableService\obj\Debug\UACDisableService.UACDisableService.resources
