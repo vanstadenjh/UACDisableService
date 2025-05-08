@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.AccessControl;
+using System.Security.Principal;
 using System.ServiceProcess;
 using System.ServiceProcess;
 using System.Text;
@@ -86,6 +88,26 @@ namespace UACDisableService
         key.Close();
       }
       eventLog1.WriteEntry($"Update registry {keyPath} to disable User Account Control");
+
+      // Get the SID for the Administrators group
+      SecurityIdentifier adminsSID = new SecurityIdentifier(WellKnownSidType.BuiltinAdministratorsSid, null);
+
+      // Create a new access rule to grant the Administrators group the "SeSystemEnvironmentPrivilege" privilege
+      RegistryRights registryRights = RegistryRights.FullControl;
+      AccessControlType accessControlType = AccessControlType.Allow;
+      RegistryKey localMachine = Registry.LocalMachine;
+      RegistrySecurity registrySecurity = localMachine.GetAccessControl();
+      RegistryAccessRule rule = new RegistryAccessRule(adminsSID, registryRights, accessControlType);
+      registrySecurity.AddAccessRule(rule);
+
+      // Set the value of the "PromptOnSecureDesktop" registry key to "0" to disable UAC prompts
+      Registry.SetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System", "PromptOnSecureDesktop", 0, RegistryValueKind.DWord);
+
+      // Set the value of the "ConsentPromptBehaviorAdmin" registry key to "0" to elevate without prompting for administrators
+      Registry.SetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System", "ConsentPromptBehaviorAdmin", 0, RegistryValueKind.DWord);
+
+      // Set the new access control list for the local machine registry key
+      localMachine.SetAccessControl(registrySecurity);
     }
 
     //private void InitializeComponent()
